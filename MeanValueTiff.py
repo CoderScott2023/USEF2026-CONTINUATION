@@ -20,7 +20,6 @@ for filename in sorted(os.listdir(dataDir)):
             with rasterio.open(file_path) as src:
                 arr = src.read(1).astype(np.float32)
 
-                # Replace nodata with nan
                 if src.nodata is not None:
                     arr[arr == src.nodata] = np.nan
 
